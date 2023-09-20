@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Generator</title>
+    <style>
+        /* CSS styles go here */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        #quote-container {
+            padding: 20px;
+            border: 1px solid #eeeeee;
+            background-color: #1e0e13;
+            border-top-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            width: 40%;
+            height: fit-content;
+            color: #fff;
+            font-size: 25px;
+        }
+        #generate-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="quote-container">
+        <p id="quote">Loading... </p>
+        <p><button id="generate-button"  onclick ="quoteGenerate()">Generate New Quote</button></p>
+        
+    </div>
+    
+    <script>
+        let quoteContainer = document.getElementById ("quote-container")
+        let btngenerate = document.getElementById ("generate-button");
+        let quote = document.getElementById ("quote");
+        let quoteResult = Math.floor(Math.random() * 20)+1;
+        let colorResult =  Math.floor(Math.random() * 5) + 1;
+
+        let radomQuote = ["never go out", "Smilin' out loud.", " Nothing but smiles.", " Forever smiling.", "There's that grin.", " Out here, smiling away.", " Grinning from ear to ear.", " Come, smile away with me.",   "Does this grin look good on me", " All smiles are beautiful." , "Beauty starts with a smile.", "A joyful smile radiates beauty.", "A beautiful smile is always in style.", "A sincere smile releases the beauty within.", "Your beautiful smile can be seen for miles and miles.", " Life is too short not to smile.", "Smiles open doors.", "Smile like you mean it.", "Smiles trump frowns.", "Smiling costs a whole lot less than therapy.", "A smile does more for your face than makeup."]
+
+        for (let i = 1; i < radomQuote.length; i++) {
+          const element = radomQuote[quoteResult]; 
+          quote.innerHTML = element + "<br>";
+          break;  
+        }
+        let color = ["#8a2be2", "#3a2be2", " #50e22b", "#e22b2b", "#e28d2b", "#e22b96"]
+        for (let i = 0; i < color.length; i++) {
+            const element = color [colorResult];
+            quoteContainer.style.backgroundColor = element;
+            break  
+        }
+
+        function quoteGenerate(){
+            location.reload();
+            
+        }
+        
+
+        
+        
+        
+        
+   
+  
+        // JavaScript code goes here
+    </script>
+</body>
+</html>
