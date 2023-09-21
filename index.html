@@ -38,37 +38,40 @@
         }
     </style>
 </head>
-<body>
+<body id = "colorquotes">
     <div id="quote-container">
         <p id="quote">Loading... </p>
+        <span id ="author" style="color: blue; font-size: 20px;"></span>
         <p><button id="generate-button"  onclick ="quoteGenerate()">Generate New Quote</button></p>
         
     </div>
     
     <script>
-        let quoteContainer = document.getElementById ("quote-container")
+        let colorQuote = document.getElementById ("colorquotes")
         let btngenerate = document.getElementById ("generate-button");
         let quote = document.getElementById ("quote");
+        let span = document.getElementById ("author");
         let quoteResult = Math.floor(Math.random() * 20)+1;
         let colorResult =  Math.floor(Math.random() * 5) + 1;
-
-        let radomQuote = ["never go out", "Smilin' out loud.", " Nothing but smiles.", " Forever smiling.", "There's that grin.", " Out here, smiling away.", " Grinning from ear to ear.", " Come, smile away with me.",   "Does this grin look good on me", " All smiles are beautiful." , "Beauty starts with a smile.", "A joyful smile radiates beauty.", "A beautiful smile is always in style.", "A sincere smile releases the beauty within.", "Your beautiful smile can be seen for miles and miles.", " Life is too short not to smile.", "Smiles open doors.", "Smile like you mean it.", "Smiles trump frowns.", "Smiling costs a whole lot less than therapy.", "A smile does more for your face than makeup."]
+        
+        let radomQuote = [[""], ["never go out", "Ji-hoon"], ["Smilin' out loud.", " Soo-min"], [" Nothing but smiles.", "Min-jun"], ["Forever smiling.","Eun-ji"], ["There's that grin.", "Tae-hyun" ], [ " Out here, smiling away.", "Hye-jin"], [" Grinning from ear to ear.", "Seo-yeon "], [" Come, smile away with me.", "Joon-ho"], ["Does this grin look good on me", "Ji-eun"], [" All smiles are beautiful." , " Yoon-hee" ], [ "Beauty starts with a smile.", "Kyung-soo"], ["A joyful smile radiates beauty.", "Hae-won"],  ["A beautiful smile is always in style.", "Min-seok"], ["Your beautiful smile can be seen for miles and miles.", "Soo-ji"], [" Life is too short not to smile.", " Hyun-woo"], [ "Smiles open doors.", " Hye-ri"], [ "Smile like you mean it.", " Sang-hoon"], ["Smiles trump frowns.", "Ji-hye"] , ["Smiling costs a whole lot less than therapy.", "Ki-young"], ["A smile does more for your face than makeup.", "Ji-hoon"]]
 
         for (let i = 1; i < radomQuote.length; i++) {
           const element = radomQuote[quoteResult]; 
-          quote.innerHTML = element + "<br>";
+          quote.innerHTML = element [0];
+          span.innerHTML = element [1];
           break;  
         }
         let color = ["#8a2be2", "#3a2be2", " #50e22b", "#e22b2b", "#e28d2b", "#e22b96"]
         for (let i = 0; i < color.length; i++) {
             const element = color [colorResult];
-            quoteContainer.style.backgroundColor = element;
+            colorQuote.style.backgroundColor = element;
             break  
         }
 
         function quoteGenerate(){
             location.reload();
-            
+    
         }
         
 
